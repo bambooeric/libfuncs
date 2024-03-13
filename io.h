@@ -26,10 +26,10 @@ ssize_t fdgetline(int fd, char *buf, size_t buf_size);
 ssize_t fdread_ex(int fd, char *buf, size_t buf_size, int timeout, int retries, int waitfull);
 ssize_t fdread(int fd, char *buf, size_t buf_size);
 ssize_t fdread_nowaitfull(int fd, char *buf, size_t buf_size);
-ssize_t fdwrite(int fd, char *buf, size_t buf_size);
+ssize_t fdwrite(int fd, const char *buf, size_t buf_size);
 
-int fdputs(int fd, char *msg);
-int fdputsf(int fd, char *fmt, ...);
+int fdputs(int fd, const char *msg);
+int fdputsf(int fd, const char *fmt, ...);
 
 void set_log_io_errors(int report_io_errors);
 

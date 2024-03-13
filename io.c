@@ -166,7 +166,7 @@ ssize_t fdread_nowaitfull(int fd, char *buf, size_t buf_size) {
 	return fdread_ex(fd, buf, buf_size, FDREAD_TIMEOUT, FDREAD_RETRIES, 0);
 }
 
-ssize_t fdwrite(int fd, char *buf, size_t buf_size) {
+ssize_t fdwrite(int fd, const char *buf, size_t buf_size) {
 	ssize_t wbytes=0;
 	int intrs = 0;
 	int num_timeouts = 0;
@@ -211,11 +211,11 @@ ssize_t fdwrite(int fd, char *buf, size_t buf_size) {
 	return 0;
 }
 
-int fdputs(int fd, char *msg) {
+int fdputs(int fd, const char *msg) {
 	return fdwrite(fd, msg, strlen(msg));
 }
 
-int fdputsf(int fd, char *fmt, ...) {
+int fdputsf(int fd, const char *fmt, ...) {
 	char msg[2048];
 	va_list args;
 	va_start(args, fmt);
