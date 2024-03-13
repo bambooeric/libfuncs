@@ -17,6 +17,8 @@ void set_http_response_server_ident(char *server, char *version);
 
 void send_http_response(int clientsock, const char * response);
 void send_header_textplain(int clientsock);
+void send_header_applicationjson(int clientsock);
+void send_header_content_length(int clientsock, size_t length);
 
 void send_http_error(int clientsock, const char *code, const char *message);
 void send_http_ok(int clientsock, const char *message);

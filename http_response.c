@@ -38,6 +38,14 @@ void send_header_textplain(int clientsock) {
 	fdputs(clientsock,"Content-Type: text/plain\n");
 }
 
+void send_header_applicationjson(int clientsock) {
+	fdputs(clientsock, "Content-Type: application/json\n");
+}
+
+void send_header_content_length(int clientsock, size_t length) {
+	fdputsf(clientsock, "Content-Length: %zu\n", length);
+}
+
 void send_http_error(int clientsock, const char *code, const char *message) {
 	send_http_response(clientsock, code);
 	send_header_textplain(clientsock);
